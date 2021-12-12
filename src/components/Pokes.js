@@ -9,7 +9,7 @@ const Pokes = (props) => {
       {list.map(el => {
         return (
           <div className="card" key={uniqueId()}>
-            <img src={el.image} alt="avatar" />
+            <img src={el.Object.keys(Image)[0]} alt="avatar" />
             <p className="name">{el.name}</p>
           </div>
         )

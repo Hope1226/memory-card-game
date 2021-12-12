@@ -1,29 +1,30 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Data from './components/data';
 import Header from './components/Header';
 import Pokes from './components/Pokes';
 
 function App() {
 
-  const [pokeList, setPokeList] = useState([]);
+  const [marvelHeros, setmarvelHeros] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
-  useEffect(()=> {
-    fetchApi();
+  useEffect(() => {
+    populateList()
+    console.log(marvelHeros)
+  }, []);
 
-  }, [])
-
-  const fetchApi = async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon');
-    const data = await response.json();
-
-    console.log(data)
-  }
+  const populateList = () => {
+    setmarvelHeros(
+     Data
+    );
+  };
 
   return (
     <div className="App">
-     
+      <Header />
+      <Pokes list={marvelHeros} />     
     </div>
   );
 }
